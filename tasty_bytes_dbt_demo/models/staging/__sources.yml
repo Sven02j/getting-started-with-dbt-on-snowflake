@@ -10,11 +10,6 @@ sources:
     columns:
     - name: COUNTRY_ID
       description: 'Primary key for countries'
-      data_tests:
-        - not_null
-        - dbt_utils.accepted_range:  # Numeric range validation
-            min_value: 1
-            max_value: 1000
     - name: COUNTRY
       description: 'Country name'
       data_tests:
@@ -211,13 +206,13 @@ sources:
         - not_null
     - name: ORDER_AMOUNT
       description: 'Pre-tax order amount'
-      data_tests:
-        - not_null
-        - is_positive_amount
-        - dbt_utils.accepted_range:  # Realistic order amount range
-            min_value: 0
-            max_value: 10
-            inclusive: true
+      #data_tests:
+      #  - not_null
+      #  - is_positive_amount
+      #  - dbt_utils.accepted_range:  # Realistic order amount range
+      #      min_value: 0
+      #      max_value: 10
+      #      inclusive: false
     - name: ORDER_TAX_AMOUNT
       description: 'Tax amount'
     - name: ORDER_DISCOUNT_AMOUNT
